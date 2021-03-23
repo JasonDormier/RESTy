@@ -1,0 +1,52 @@
+.App-form{
+
+}
+
+article{
+    display: grid;
+    grid-template-columns: 25% 50%;
+    height: 500px;
+    width: 75%;
+    background-color: #efefef;
+    border: #d8d8d8 .7px solid;
+    margin: 50px auto;
+    ul li{
+      list-style: none;
+    }
+}
+.input-text{
+  margin: 15px 0;
+}
+.button-holder{
+  margin: 0 auto;
+
+}
+.ck-button {
+  display: inline-block;
+    margin:4px;
+    width: 75px;
+    background-color:#EFEFEF;
+    border-radius:4px;
+    border:1px solid #D0D0D0;
+    overflow:auto;
+}
+
+.ck-button label {
+    width:4.0em;
+}
+
+.ck-button label span {
+    text-align:center;
+    padding:3px 0px;
+    display:block;
+}
+
+.ck-button label input {
+    position:absolute;
+    top:-20px;
+}
+
+.ck-button input:checked + span {
+    background-color:rgb(134, 134, 134);
+    color:#fff;
+}
