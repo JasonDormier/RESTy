@@ -90,3 +90,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 ### Collaborators
 * Jason Qualglia
+* Carly Dekock
+
+### UML
+![image](assets/uml.jpg)
