@@ -1,13 +1,19 @@
 
 article{
   display: grid;
-  grid-template-columns: 25% 50%;
+  grid-template-columns: 25% 75%;
+  grid-template-rows: 20% 80%;
   height: 500px;
   width: 75%;
   background-color: #efefef;
   border: #d8d8d8 .7px solid;
   margin: 50px auto;
   overflow: scroll;
+  ul{
+    grid-column: 2;
+    grid-row: 1;
+    
+  }
   ul li{
     list-style: none;
   }
