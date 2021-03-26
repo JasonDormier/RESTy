@@ -2,11 +2,14 @@ import React from 'react';
 import './App.scss';
 //import request from 'superagent';
 import { If, Then, Else, When, Unless, Switch, Case, Default } from 'react-if';
+import { BrowserRouter, Route, Switch as SwitchRoute } from 'react-router-dom';
 import Header from './components/Header/Header.js';
 import Form from './components/Form/Form.js';
 import Results from './components/Results/Results.js';
 import Footer from './components/Footer/Footer.js';
 import History from './components/History/History.js';
+import HelpPage from './components/Help-Page/HelpPage.js';
+import HistoryPage from './components/History-Page/HistoryPage.js';
 
 class App extends React.Component {
   constructor() {
@@ -19,11 +22,13 @@ class App extends React.Component {
       history: [],
       count: 0,
       isLoading: false,
+      initial: true,
     };
   }
 
   updateResults = async (userData) => {
     this.setState({
+      initial: false,
       isLoading: true,
       urls: [...this.state.urls, userData.urls],
       methods: [...this.state.methods, userData.methods],
@@ -62,24 +67,29 @@ class App extends React.Component {
     return (
       <div className="App">
         <Header />
-        <main>
-          <Form updateResults={this.updateResults} />
-          <History history={this.state.history} />
-          <If condition={this.state.isLoading}>
-            <Then>
-              {console.log(this.state.isLoading)}
-              <h2>Loading...</h2>
-            </Then>
-
-            <Else>
-              <Results data={this.state} />
-            </Else>
-          </If>
-        </main>
+        <SwitchRoute>
+          <Route exact path='/history' component={HistoryPage} />
+          <Route exact path='/help' component={HelpPage} />
+          <Route>
+            <Form updateResults={this.updateResults} />
+            <main>
+              <History history={this.state.history} />
+              <When condition={!this.state.initial}>
+                <If condition={this.state.isLoading}>
+                  <Then>
+                    <h2>Loading...</h2>
+                  </Then>
+                  <Else>
+                    <Results data={this.state} />
+                  </Else>
+                </If>
+              </When>
+            </main>
+          </Route>
+        </SwitchRoute>
         <Footer />
       </div >
     );
   }
-
 }
 export default App;

@@ -22,20 +22,6 @@ class Form extends React.Component {
     });
 
     this.props.updateResults({ ...this.state });
-
-
-    //await this.setState({ isLoading: true });
-    //console.log(this.state.isLoading);
-
-    // const request = await fetch(e.target.url.value, {
-    //   method: e.target.method.value,
-    // });
-    // const data = await request.json();
-    // const headers = request.headers;
-
-
-    //await this.setState({ isLoading: false });
-    //console.log(this.state.isLoading);
   }
 
   render() {
